@@ -24,12 +24,13 @@ Then open the local Vite URL.
 
 The mock arrays at the top of `src/App.jsx` are intentionally easy to replace with API calls.
 
-For your Spring Boot backend, the eventual flow can be:
+The FastAPI backend serves recommendations through:
 
 Frontend
 → `GET /api/recommendations`
-→ Spring Boot
+→ FastAPI
+→ executes `mvp_sample.ipynb` (skipping the YouTube metadata refresh cell)
 → PostgreSQL + pgvector
-→ return video ID, title, source, similarity score, essay ID
+→ return the three highest-scoring essay/video matches
 
 Then use the returned IDs to populate the recommendation cards and detail pages.
